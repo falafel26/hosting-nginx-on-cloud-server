@@ -12,7 +12,7 @@ jobs:
       - name: SSH into EC2 and pull latest code
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.EC2_HOST }}
+          host: ${{ secrets.EC2_SERVER }}
           username: ubuntu
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
