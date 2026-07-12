@@ -1,11 +1,16 @@
+# Hosting Nginx on AWS EC2 with CI/CD Pipeline
+
 Hello, this is my project in which I am hosting an nginx server on a cloud server.
 
-Tools that I'm using
+## Tools that I'm using
 WSL (Ubuntu) {for sshing into my cloud server}
 WSL (Local Machine) {foor making changes in the files of local machine}
-AWS (EC2) {for creating instances of web servers}
-AWS S2 {for uploading media content in our server}
+AWS EC2 {for creating instances of web servers}
+AWS S3 {for uploading media content in our server}
 AWS IAM {for assigning roles}
 Github Actions {for creating pipeline}
 
-First I did setup my very first instance by choosing desired confuguration methods. After that I sshed into the server with the help of a pem key and publib IP provided to me. Then I installed nginx in it and hosted an index page on it. I then used S3 and setup that server as a file sharing server for my cloud server. I even uploaded a txt file on it. Later i created IAM roles for creating roles for different persons. I set the role to only view not change for S#. Now I attatched that to S3 and S3 to EC2. Now the thing with our web page is that it was static and in order to make any change we've to make it in the instance itself so I created a folder on local machine and created an index page in it. Now setup git and created a repository in github. and connected it with my local machine folder and later to my EC2 instance. But still I've to push and pull the code to make any changes to my webpage. In order to automate this I created a Github pipeline by using workflows which automatically sends the data to EC2 server wheb I make any commit. Stay tuned because there's more to this **winks
+## Architecture
+Local Machine → GitHub → GitHub Actions → AWS EC2 → Nginx
+
+First I did setup my very first instance by choosing desired confuguration methods. After that I sshed into the server with the help of a pem key and public IP provided to me. Then I installed nginx in it and hosted an index page on it. I then used S3 and setup that server as a file sharing server for my cloud server. I even uploaded a txt file on it. Later i created IAM roles for creating roles for different persons. I set the role to only view not change for S3. Now I attatched that to S3 and S3 to EC2. Now the thing with our web page is that it was static and in order to make any change we've to make it in the instance itself so I created a folder on local machine and created an index page in it. Also assif=gned an Elastic IP which basically serves as an Static IP for our server Now setup git and created a repository in github. and connected it with my local machine folder and later to my EC2 instance. But still I've to push and pull the code to make any changes to my webpage. In order to automate this I created a Github pipeline by using workflows which automatically sends the data to EC2 server wheb I make any commit. Stay tuned because there's more to this **winks
